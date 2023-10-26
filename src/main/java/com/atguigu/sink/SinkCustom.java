@@ -21,7 +21,7 @@ public class SinkCustom {
         env.setParallelism(1);
 
         SingleOutputStreamOperator<String> sensorDS = env
-                .socketTextStream("hadoop102", 7777);
+                .socketTextStream("localhost", 7777);
 
 
         sensorDS.addSink(new MySink());

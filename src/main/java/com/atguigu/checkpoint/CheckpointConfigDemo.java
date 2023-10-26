@@ -65,7 +65,7 @@ public class CheckpointConfigDemo {
 
 
         env
-                .socketTextStream("hadoop102", 7777)
+                .socketTextStream("localhost", 7777)
                 .flatMap(
                         (String value, Collector<Tuple2<String, Integer>> out) -> {
                             String[] words = value.split(" ");

@@ -39,7 +39,7 @@ public class WatermarkOutOfOrdernessDemo {
 
 
         SingleOutputStreamOperator<WaterSensor> sensorDS = env
-                .socketTextStream("hadoop102", 7777)
+                .socketTextStream("localhost", 7777)
                 .map(new WaterSensorMapFunction());
 
         // TODO 1.定义Watermark策略

@@ -51,7 +51,7 @@ public class SavepointDemo {
 
 
         env
-                .socketTextStream("hadoop102", 7777).uid("socket")
+                .socketTextStream("localhost", 7777).uid("socket")
                 .flatMap(
                         (String value, Collector<Tuple2<String, Integer>> out) -> {
                             String[] words = value.split(" ");

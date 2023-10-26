@@ -16,7 +16,7 @@ public class PartitionCustomDemo {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(new Configuration());
         env.setParallelism(2);
 
-        DataStreamSource<String> socketDS = env.socketTextStream("hadoop102", 7777);
+        DataStreamSource<String> socketDS = env.socketTextStream("localhost", 7777);
 
         socketDS
                 .partitionCustom(new MyPartitioner(), r->r)

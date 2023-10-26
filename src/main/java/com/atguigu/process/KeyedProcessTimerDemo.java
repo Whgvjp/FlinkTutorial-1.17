@@ -30,7 +30,7 @@ public class KeyedProcessTimerDemo {
 
 
         SingleOutputStreamOperator<WaterSensor> sensorDS = env
-                .socketTextStream("hadoop102", 7777)
+                .socketTextStream("localhost", 7777)
                 .map(new WaterSensorMapFunction())
                 .assignTimestampsAndWatermarks(
                         WatermarkStrategy

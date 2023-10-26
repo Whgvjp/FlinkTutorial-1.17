@@ -30,7 +30,7 @@ public class WatermarkIdlenessDemo {
 
         // 自定义分区器：数据%分区数，只输入奇数，都只会去往map的一个子任务
         SingleOutputStreamOperator<Integer> socketDS = env
-                .socketTextStream("hadoop102", 7777)
+                .socketTextStream("localhost", 7777)
                 .partitionCustom(new MyPartitioner(), r -> r)
                 .map(r -> Integer.parseInt(r))
                 .assignTimestampsAndWatermarks(

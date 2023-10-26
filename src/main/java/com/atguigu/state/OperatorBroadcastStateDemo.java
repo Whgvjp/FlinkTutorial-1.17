@@ -30,11 +30,11 @@ public class OperatorBroadcastStateDemo {
 
         // 数据流
         SingleOutputStreamOperator<WaterSensor> sensorDS = env
-                .socketTextStream("hadoop102", 7777)
+                .socketTextStream("localhost", 7777)
                 .map(new WaterSensorMapFunction());
 
         // 配置流（用来广播配置）
-        DataStreamSource<String> configDS = env.socketTextStream("hadoop102", 8888);
+        DataStreamSource<String> configDS = env.socketTextStream("localhost", 8888);
 
         // TODO 1. 将 配置流 广播
         MapStateDescriptor<String, Integer> broadcastMapState = new MapStateDescriptor<>("broadcast-state", Types.STRING, Types.INT);

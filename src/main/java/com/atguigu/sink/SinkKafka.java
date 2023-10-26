@@ -25,7 +25,7 @@ public class SinkKafka {
 
 
         SingleOutputStreamOperator<String> sensorDS = env
-                .socketTextStream("hadoop102", 7777);
+                .socketTextStream("localhost", 7777);
 
         /**
          * Kafka Sink:

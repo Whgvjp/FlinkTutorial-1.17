@@ -28,7 +28,7 @@ public class IntervalJoinWithLateDemo {
         env.setParallelism(1);
 
         SingleOutputStreamOperator<Tuple2<String, Integer>> ds1 = env
-                .socketTextStream("hadoop102", 7777)
+                .socketTextStream("localhost", 7777)
                 .map(new MapFunction<String, Tuple2<String, Integer>>() {
                     @Override
                     public Tuple2<String, Integer> map(String value) throws Exception {
@@ -44,7 +44,7 @@ public class IntervalJoinWithLateDemo {
 
 
         SingleOutputStreamOperator<Tuple3<String, Integer, Integer>> ds2 = env
-                .socketTextStream("hadoop102", 8888)
+                .socketTextStream("localhost", 8888)
                 .map(new MapFunction<String, Tuple3<String, Integer, Integer>>() {
                     @Override
                     public Tuple3<String, Integer, Integer> map(String value) throws Exception {

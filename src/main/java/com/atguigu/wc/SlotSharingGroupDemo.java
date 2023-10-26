@@ -28,7 +28,7 @@ public class SlotSharingGroupDemo {
 
 
         // TODO 2. 读取数据： socket
-        DataStreamSource<String> socketDS = env.socketTextStream("hadoop102", 7777);
+        DataStreamSource<String> socketDS = env.socketTextStream("localhost", 7777);
 
         // TODO 3. 处理数据: 切换、转换、分组、聚合
         SingleOutputStreamOperator<Tuple2<String,Integer>> sum = socketDS

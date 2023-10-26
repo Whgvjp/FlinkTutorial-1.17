@@ -22,10 +22,10 @@ public class ConnectDemo {
 //        DataStreamSource<String> source2 = env.fromElements("a", "b", "c");
 
         SingleOutputStreamOperator<Integer> source1 = env
-                .socketTextStream("hadoop102", 7777)
+                .socketTextStream("localhost", 7777)
                 .map(i -> Integer.parseInt(i));
 
-        DataStreamSource<String> source2 = env.socketTextStream("hadoop102", 8888);
+        DataStreamSource<String> source2 = env.socketTextStream("localhost", 8888);
 
 
         /**

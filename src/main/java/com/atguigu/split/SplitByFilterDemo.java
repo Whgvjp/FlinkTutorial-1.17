@@ -18,7 +18,7 @@ public class SplitByFilterDemo {
 
         env.setParallelism(1);
 
-        DataStreamSource<String> socketDS = env.socketTextStream("hadoop102", 7777);
+        DataStreamSource<String> socketDS = env.socketTextStream("localhost", 7777);
 
         /**
          * TODO 使用filter来实现分流效果
