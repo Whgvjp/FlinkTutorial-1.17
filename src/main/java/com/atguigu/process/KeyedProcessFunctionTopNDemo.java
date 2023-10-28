@@ -102,7 +102,7 @@ public class KeyedProcessFunctionTopNDemo {
 
     /**
      * 泛型如下：
-     * 第一个：输入类型 = 增量函数的输出  count值，Integer
+     * 第一个：输入类型 = 增量函数的输出  count值，Integer   whgvjp 这个参数是上面 VcCountAgg 的输出类型
      * 第二个：输出类型 = Tuple3(vc，count，windowEnd) ,带上 窗口结束时间 的标签
      * 第三个：key类型 ， vc，Integer
      * 第四个：窗口类型
