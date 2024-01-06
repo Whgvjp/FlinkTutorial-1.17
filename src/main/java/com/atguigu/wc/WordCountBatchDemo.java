@@ -24,6 +24,7 @@ public class WordCountBatchDemo {
         DataSource<String> lineDS = env.readTextFile("input/word.txt");
 
         // TODO 3.切分、转换 （word，1）
+        // 注意Tuple2的包
         FlatMapOperator<String, Tuple2<String, Integer>> wordAndOne = lineDS.flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
             @Override
             public void flatMap(String value, Collector<Tuple2<String, Integer>> out) throws Exception {
