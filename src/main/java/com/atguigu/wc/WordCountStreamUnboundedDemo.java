@@ -19,14 +19,14 @@ import org.apache.flink.util.Collector;
 public class WordCountStreamUnboundedDemo {
     public static void main(String[] args) throws Exception {
         // TODO 1. 创建执行环境
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+//        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         // IDEA运行时，也可以看到webui，一般用于本地测试
         // 需要引入一个依赖 flink-runtime-web
         // 在idea运行，不指定并行度，默认就是 电脑的 线程数
-//        StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(new Configuration());
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(new Configuration());
 
 
-        env.setParallelism(3);
+//        env.setParallelism(3);
 
         // TODO 2. 读取数据： socket
         DataStreamSource<String> socketDS = env.socketTextStream("localhost", 7777);
