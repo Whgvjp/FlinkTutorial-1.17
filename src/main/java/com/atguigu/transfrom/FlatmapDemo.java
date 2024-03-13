@@ -52,7 +52,7 @@ public class FlatmapDemo {
                     out.collect(value.getTs().toString());
                     out.collect(value.getVc().toString());
                 } else if ("s3".equals(value.getId())) {
-                    // 如果是 s2，分别输出ts和vc
+                    // 如果是 s3，输出 abd
                     out.collect("abd");
                 }
             }
