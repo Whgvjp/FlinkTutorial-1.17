@@ -45,6 +45,7 @@ public class IntervalJoinDemo {
                         Tuple3.of("b", 2, 1),
                         Tuple3.of("b", 12, 1),
                         Tuple3.of("c", 14, 1),
+                        Tuple3.of("a", 3, 1),
                         Tuple3.of("d", 15, 1)
                 )
                 .assignTimestampsAndWatermarks(
