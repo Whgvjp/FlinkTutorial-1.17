@@ -35,6 +35,9 @@ public class WatermarkLateDemo {
         WatermarkStrategy<WaterSensor> watermarkStrategy = WatermarkStrategy
                 .<WaterSensor>forBoundedOutOfOrderness(Duration.ofSeconds(3))
                 .withTimestampAssigner((element, recordTimestamp) -> element.getTs() * 1000L);
+                // 这里可以加一个 .withIdleness(Duration.ofSeconds(5)) 含义是如果同一个流中的某个子任务没有刷新watermark，会在5s后关闭窗口，不等这个子任务
+                // 这是针对watermark的设置，这是针对watermark在分布式环境中的上下传递的设置；要和下面的关于窗口关闭的.allowedLateness(Time.seconds(2)) 区分开来
+                // 下面那个是针对窗口的设置，就是说窗口可以晚2s关闭，这样的话2s内到的数据仍然会计算
 
         SingleOutputStreamOperator<WaterSensor> sensorDSwithWatermark = sensorDS.assignTimestampsAndWatermarks(watermarkStrategy);
 
