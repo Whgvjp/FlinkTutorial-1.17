@@ -23,7 +23,7 @@ public class ReduceForMaxOrMaxBy {
                         //value1.setVc(maxVc);
                         //实现maxBy(vc)的效果  取当前最大值的所有字段
                         if (value1.getVc() > value2.getVc()) {
-                            value1.setVc(maxVc);
+                            value1.setVc(maxVc);        // 这行应该不加也行，问了两个AI都这么说
                             return value1;
                         } else {
                             value2.setVc(maxVc);
